@@ -789,7 +789,7 @@ def bbox(
                 crosses_antimeridian = True
 
         if crosses_antimeridian or force_over_antimeridian:
-            return [max(xmins), ymin, min(xmaxs), ymax]
+            return [max(xmins), ymin, max([xmax for xmax in xmaxs if xmax < 0]), ymax]
         else:
             return [min(xmins), ymin, max(xmaxs), ymax]
     else:
